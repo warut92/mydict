@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./img/icon.png">
+    <link rel="apple-touch-icon" href="./img/icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+<title>พจนานุกรมไทย-อังกฤษ</title>
+<style>
+  body, input, button {
+    font-family: consolas;
+    color: white;
+    background-color: black;
+    font-size: 15px;
+  }
+
+  </style>
+</head>
+<body>
+
+<h2>พจนานุกรมไทย-อังกฤษ</h2>
+<input type="text" id="searchInput" placeholder="ค้นหาคำศัพท์...">
+<button onclick="search()">ค้นหา</button>
+
+<div id="countWordResult"></div>
+<div id="searchResult"></div>
+
+<script>
+document.addEventListener('keydown', function(e) {
+  if (e.keyCode === 13) {
+    search()
+  }
+});
+
+// Function to search and display results
+function search() {
+  var searchInput = document.getElementById("searchInput").value.toLowerCase();
+  var searchResult = document.getElementById("searchResult");
+  searchResult.innerHTML = "";
+  if (searchInput === "") {
+    searchResult.innerHTML = "";
+    document.getElementById('countWordResult').innerHTML = "";
+    return ;
+  }
+  let countWord = 0
+  for (var i = 0; i < jsonData.length; i++) {
+    if (jsonData[i].tsearch.includes(searchInput)) {
+      countWord++
+      var div = document.createElement("div");
+      div.innerHTML = "<h3>\"" + jsonData[i].tsearch + "\"</h3>" +
+      "<span><strong>Entry:</strong> " + jsonData[i].tentry + "</span><br>" +
+      "<span><strong>ชนิดคำไทย:</strong> " + jsonData[i].tcat + "</span><br>" +
+      "<span><strong>English:</strong> " + jsonData[i].eentry + "</span><br>" +
+      "<span><strong>นิยาม:</strong> " + (jsonData[i].tdef === undefined ? "-" : jsonData[i].tdef)  + "</span><br>" +
+      "<span><strong>ตัวอย่าง:</strong> " + (jsonData[i].tsample === undefined ? "-" : jsonData[i].tsample)  + "</span><br>" +
+      "<span><strong>คำเหมือน:</strong> " + (jsonData[i].tsyn === undefined ? "-" : jsonData[i].tsyn) + "</span><br>" +
+      "<span><strong>คำตรงข้าม:</strong> " + (jsonData[i].tant === undefined ? "-" : jsonData[i].tant)  + "</span><br>" +
+      "<span><strong>หมายเหตุ:</strong> " + (jsonData[i].notes === undefined ? "-" : jsonData[i].notes)  + "</span><br>" +
+      "<span><strong>ID:</strong> " +  (jsonData[i].id  === undefined ? "-" : jsonData[i].id) + "</span><hr>";
+      searchResult.appendChild(div);
+    }
+    document.getElementById('countWordResult').innerHTML = "ผลลัพท์:" + countWord ;
+  }
+}
+</script>
+<script src="data.js" charset="utf-8"></script>
+</body>
+</html>
