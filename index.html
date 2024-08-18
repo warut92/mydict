@@ -8,24 +8,17 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="stylesheet" href="style.css">
 <title>พจนานุกรมไทย-อังกฤษ</title>
-<style>
-  body, input, button {
-    font-family: consolas;
-    color: white;
-    background-color: black;
-    font-size: 15px;
-  }
-  
-  </style>
 </head>
 <body>
-  
+<div class="sticky">
   <h2>พจนานุกรมไทย-อังกฤษ</h2>
   <pre>พจนานุกรมนี้ใช้ฐานข้อมูลจาก Lexitron</pre>
 <input type="text" id="searchInput" placeholder="ค้นหาคำศัพท์...">
 <button onclick="search()">ค้นหา</button>
 
 <div id="countWordResult"></div>
+</div> 
+
 <div id="searchResult"></div>
 
 <script src="app.js" charset="utf-8"></script>

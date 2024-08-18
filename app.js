@@ -26,7 +26,7 @@
         "<span><strong>🌎</strong> " + (jsonData[i].esp === undefined ? "-" : jsonData[i].esp) + "</span><br>" +
         "<span><strong>🇬🇧</strong> " + jsonData[i].eentry + "</span><br>" +
         "<span><strong>def</strong> " + (jsonData[i].tdef === undefined ? "-" : jsonData[i].tdef)  + "</span><br>" +
-        "<span><strong>samle</strong> " + (jsonData[i].tsample === undefined ? "-" : jsonData[i].tsample)  + "</span><br>" +
+        "<span><strong>sample</strong> " + (jsonData[i].tsample === undefined ? "-" : jsonData[i].tsample)  + "</span><br>" +
         "<span><strong>syn</strong> " + (jsonData[i].tsyn === undefined ? "-" : jsonData[i].tsyn) + "</span><br>" +
         "<span><strong>ant</strong> " + (jsonData[i].tant === undefined ? "-" : jsonData[i].tant)  + "</span><br>" +
         "<span><strong>notes</strong> " + (jsonData[i].notes === undefined ? "-" : jsonData[i].notes)  + "</span><br><hr>"

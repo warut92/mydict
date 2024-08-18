@@ -1,4 +1,33 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: black;
+    color: aliceblue;  
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+input {
+    background-color: black;
+    color: aliceblue;  
+    font-size: 18px;
+    width: 75%;
+}
+
+button {
+    background-color: black;
+    color: aliceblue;  
+    font-size: 18px;
+}
+
 .bold {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bolder;
 }
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    width: auto;
+    background-color: black;
+  }
