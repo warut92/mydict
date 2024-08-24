@@ -31,13 +31,20 @@
         "<span><strong>ant</strong> " + (jsonData[i].tant === undefined ? "-" : jsonData[i].tant)  + "</span><br>" +
         "<span><strong>notes</strong> " + (jsonData[i].notes === undefined ? "-" : jsonData[i].notes)  + "</span><br><hr>"
         // "<span><strong>ID:</strong> " +  (jsonData[i].id  === undefined ? "-" : jsonData[i].id) + "</span><hr>";
+        console.log(jsonData[i].eentry); 
         searchResult.appendChild(div);
       }
       document.getElementById("liveSearch").innerHTML = ""
       document.getElementById('countWordResult').innerHTML = "ผลลัพท์:" + countWord + "<hr>";
     }
   }
-  
+
+  for (let i = 0; i < jsonData.length; i++) {
+    const element = jsonData[i].tentry;
+    console.log(element,jsonData.length, i);
+    document.getElementById("e").innerHTML += element + ","
+  }
+
   function liveSearch(thaiW) {
     // console.log(thaiWord);
     const THAI_WORDS = thaiWord.split("\n")
@@ -63,8 +70,4 @@ function letSearch(word) {
   document.getElementById("searchInput").value = word.innerText
   document.getElementById("liveSearch").innerHTML = ""
   search() 
-}
-
-function hideLiveSearch() {
-  document.getElementById("liveSearch").innerHTML = ""
 }
