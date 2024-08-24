@@ -39,27 +39,30 @@
     }
   }
 
-  for (let i = 0; i < jsonData.length; i++) {
-    const element = jsonData[i].tentry;
-    console.log(element,jsonData.length, i);
-    document.getElementById("e").innerHTML += element + ","
-  }
+  // for (let i = 0; i < jsonData.length; i++) {
+  //   const tw = jsonData[i].tentry;
+  //   const ew = jsonData[i].eentry;
+  //   console.log(tw,ew,jsonData.length, i);
+  //   document.getElementById("e").innerHTML += tw + " : " + ew + ","
+  // }
 
   function liveSearch(thaiW) {
     // console.log(thaiWord);
     const THAI_WORDS = thaiWord.split("\n")
     console.log(thaiW);
     if (thaiW.length > 1) {
-      let PATTERN = new RegExp(`(${(thaiW)})`, "g");
+      let PATTERN = new RegExp(`(${(thaiW)})`, "gm");
       let RESULTS = THAI_WORDS.filter(function(str) {
         return PATTERN.test(str);
       });
+      // RESULTS.push("<hr>")
       // console.log(RESULTS);
       let results = RESULTS.toString()
       .replace(/,/g, "<hr>")
-      .replace(/([ก-๙]*)<hr>/g, "<span onclick=\"letSearch(this)\">$1</span><hr>")
+      .replace(/([ก-๙]*) : /g, "<span onclick=\"letSearch(this)\">$1</span> : ")
+      // .replace(/([ก-๙]*)$/g, "<span onclick=\"letSearch(this)\">$1</span>")
+      console.log(results);
 
-      // console.log(results);
       document.getElementById("liveSearch").innerHTML = results 
     } else {
       document.getElementById("liveSearch").innerHTML = ""
