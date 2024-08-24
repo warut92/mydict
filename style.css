@@ -31,3 +31,7 @@ button {
     width: auto;
     background-color: black;
   }
+
+  #liveSearch {
+    padding-top: 5px;
+  }

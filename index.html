@@ -13,14 +13,15 @@
 <div class="sticky">
   <h2>พจนานุกรมไทย-อังกฤษ</h2>
   <pre>พจนานุกรมนี้ใช้ฐานข้อมูลจาก Lexitron</pre>
-<input type="text" id="searchInput" placeholder="ค้นหาคำศัพท์...">
+<input type="text" id="searchInput" placeholder="ค้นหาคำศัพท์..." oninput="liveSearch(this.value)" onfocus="liveSearch(this.value)">
 <button onclick="search()">ค้นหา</button>
-
+<div id="liveSearch"></div>
 <div id="countWordResult"></div>
 </div> 
 
 <div id="searchResult"></div>
 
+<script src="thaiw.js" charset="utf-8"></script>
 <script src="app.js" charset="utf-8"></script>
 <script src="data.js" charset="utf-8"></script>
 </body>

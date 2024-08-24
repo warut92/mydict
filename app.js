@@ -23,7 +23,7 @@
         var div = document.createElement("div");
         div.innerHTML = "<span class=\"bold\"><u>" + jsonData[i].tsearch + "</u></span>" +
         " <span><i>(" + jsonData[i].tcat + ")</i></span><br>" +
-        "<span><strong>🌎</strong> " + (jsonData[i].esp === undefined ? "-" : jsonData[i].esp) + "</span><br>" +
+        // "<span><strong>🌎</strong> " + (jsonData[i].esp === undefined ? "-" : jsonData[i].esp) + "</span><br>" +
         "<span><strong>🇬🇧</strong> " + jsonData[i].eentry + "</span><br>" +
         "<span><strong>def</strong> " + (jsonData[i].tdef === undefined ? "-" : jsonData[i].tdef)  + "</span><br>" +
         "<span><strong>sample</strong> " + (jsonData[i].tsample === undefined ? "-" : jsonData[i].tsample)  + "</span><br>" +
@@ -33,6 +33,38 @@
         // "<span><strong>ID:</strong> " +  (jsonData[i].id  === undefined ? "-" : jsonData[i].id) + "</span><hr>";
         searchResult.appendChild(div);
       }
+      document.getElementById("liveSearch").innerHTML = ""
       document.getElementById('countWordResult').innerHTML = "ผลลัพท์:" + countWord + "<hr>";
     }
   }
+  
+  function liveSearch(thaiW) {
+    // console.log(thaiWord);
+    const THAI_WORDS = thaiWord.split("\n")
+    console.log(thaiW);
+    if (thaiW.length > 1) {
+      let PATTERN = new RegExp(`(${(thaiW)})`, "g");
+      let RESULTS = THAI_WORDS.filter(function(str) {
+        return PATTERN.test(str);
+      });
+      // console.log(RESULTS);
+      let results = RESULTS.toString()
+      .replace(/,/g, "<hr>")
+      .replace(/([ก-๙]*)<hr>/g, "<span onclick=\"letSearch(this)\">$1</span><hr>")
+
+      // console.log(results);
+      document.getElementById("liveSearch").innerHTML = results 
+    } else {
+      document.getElementById("liveSearch").innerHTML = ""
+    }
+  } 
+
+function letSearch(word) {
+  document.getElementById("searchInput").value = word.innerText
+  document.getElementById("liveSearch").innerHTML = ""
+  search() 
+}
+
+function hideLiveSearch() {
+  document.getElementById("liveSearch").innerHTML = ""
+}
