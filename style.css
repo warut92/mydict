@@ -32,6 +32,6 @@ button {
     background-color: black;
   }
 
-  #liveSearch {
+  #liveSearch, #searchResult {
     padding-top: 5px;
   }

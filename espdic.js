@@ -1,5 +1,5 @@
-# ESPDIC (Esperanto – English Dictionary) – 20 July 2019 - Paul Denisowski (www.denisowski.org)
--a : (adjective ending)
+// # ESPDIC (Esperanto – English Dictionary) – 20 July 2019 - Paul Denisowski (www.denisowski.org)
+let espDic = `-a : (adjective ending)
 Aarono : Aaron
 Abadono : Abaddon (biblical, a compartment of Gehenna)
 abaĵuro : lampshade
@@ -63787,4 +63787,4 @@ porinfana libro : childrens’ book
 mastrocerbulo : mastermind
 ĉifoje : this time
 por ĉiam : forever
-vivcelo : purpose in life, raison d’être
+vivcelo : purpose in life, raison d’être`

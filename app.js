@@ -47,9 +47,14 @@
   // }
 
   function liveSearch(thaiW) {
+    var searchInput = document.getElementById("searchInput").value.toLowerCase();
+    var searchResult = document.getElementById("searchResult");
+    if (searchInput === "") {
+      searchResult.innerHTML = ""
+    }
     // console.log(thaiWord);
     const THAI_WORDS = thaiWord.split("\n")
-    console.log(thaiW);
+    // console.log(thaiW);
     if (thaiW.length > 1) {
       let PATTERN = new RegExp(`(${(thaiW)})`, "gm");
       let RESULTS = THAI_WORDS.filter(function(str) {
@@ -59,9 +64,9 @@
       // console.log(RESULTS);
       let results = RESULTS.toString()
       .replace(/,/g, "<hr>")
-      .replace(/([ก-๙]*) : /g, "<span onclick=\"letSearch(this)\">$1</span> : ")
+      .replace(/([ก-๙]*) : ([A-Za-z \(\)\'\"]*)/g, "<span onclick=\"letSearch(this)\">$1</span> : <span onclick=\"letSearchEo(this)\">$2</span>")
       // .replace(/([ก-๙]*)$/g, "<span onclick=\"letSearch(this)\">$1</span>")
-      console.log(results);
+      // console.log(results);
 
       document.getElementById("liveSearch").innerHTML = results 
     } else {
@@ -74,3 +79,26 @@ function letSearch(word) {
   document.getElementById("liveSearch").innerHTML = ""
   search() 
 }
+
+let espdicWord;
+function letSearchEo(engWord) {
+  espdicWord = " " + engWord.innerHTML
+  searchEspdic()
+}
+
+function searchEspdic() {
+  const ESPDIC = espDic.split("\n")
+  // console.log(ESPDIC);
+      let PATTERN = new RegExp(`(${(espdicWord)})`, "g");
+      let PATTERN_NOSPACE = new RegExp(`(${(espdicWord.substring(1))})`, "g");
+      console.log(PATTERN);
+      let ESPDIC_RESULTS = ESPDIC.filter(function(str) {
+        return PATTERN.test(str);
+      });
+      let espdicResult = ESPDIC_RESULTS.join("+").toString()
+      .replace(/\+/g, "<hr>")
+      .replace(PATTERN_NOSPACE, "<u>$1</u>")
+      document.getElementById("searchResult").innerHTML = ""
+      document.getElementById("searchResult").innerHTML = espdicResult
+
+} 
