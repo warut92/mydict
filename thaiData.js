@@ -40852,4 +40852,5 @@ let thaiWord = `ดังกล่าวข้างต้น : abovementioned
 เอสเปรันโต : Esperanto
 ผู้ชาย : male
 พะยูน : dugong
+ภาวะโลกรวน : climate change
 `

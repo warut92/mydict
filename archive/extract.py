@@ -3,7 +3,7 @@ import json
 # Step 1: Read JSON data from a .txt file with UTF-8 encoding
 with open('data.js', 'r', encoding='utf-8') as file:
     json_data = file.read()
-print(json_data)
+# print(json_data)
 # Step 2: Parse the JSON data into a Python list (since it's an array of JSON objects)
 data = json.loads(f"[{json_data}]")  # If the content is not enclosed in a list, you can do this.
 
