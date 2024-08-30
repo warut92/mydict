@@ -34,7 +34,7 @@
         console.log(jsonData[i].eentry); 
         searchResult.appendChild(div);
       }
-      document.getElementById("liveSearch").innerHTML = ""
+      // document.getElementById("liveSearch").innerHTML = ""
       document.getElementById('countWordResult').innerHTML = "ผลลัพท์:" + countWord + "<hr>";
     }
   }
@@ -76,7 +76,7 @@
 
 function letSearch(word) {
   document.getElementById("searchInput").value = word.innerText
-  document.getElementById("liveSearch").innerHTML = ""
+  // document.getElementById("liveSearch").innerHTML = ""
   search() 
 }
 

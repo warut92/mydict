@@ -40851,4 +40851,5 @@ let thaiWord = `ดังกล่าวข้างต้น : abovementioned
 ไฮเวย์ : highway
 เอสเปรันโต : Esperanto
 ผู้ชาย : male
+พะยูน : dugong
 `

@@ -24,13 +24,13 @@ button {
     font-weight: bolder;
 }
 
-.sticky {
+/* .sticky {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
     width: auto;
     background-color: black;
-  }
+  } */
 
   #liveSearch, #searchResult {
     padding-top: 5px;
